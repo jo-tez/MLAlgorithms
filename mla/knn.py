@@ -1,13 +1,13 @@
 from collections import Counter
 
 import numpy as np
-from scipy.spatial.distance import euclidean
+from mla.metrics import distance
 
 from mla.base import BaseEstimator
 
 
 class KNNBase(BaseEstimator):
-    def __init__(self, k=5, distance_func=euclidean):
+    def __init__(self, k=5, distance_func=distance):
         """Base class for Nearest neighbors classifier and regressor.
 
         Parameters

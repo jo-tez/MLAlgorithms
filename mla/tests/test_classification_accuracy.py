@@ -1,5 +1,4 @@
 from sklearn.metrics import roc_auc_score
-
 from mla.ensemble import RandomForestClassifier
 from mla.ensemble.gbm import GradientBoostingClassifier
 from mla.knn import KNNClassifier

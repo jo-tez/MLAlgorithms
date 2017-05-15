@@ -1,7 +1,7 @@
 import logging
 
-import autograd.numpy as np
-from autograd import grad
+import numpy as np
+#from autograd import grad
 
 from mla.base import BaseEstimator
 from mla.metrics.metrics import mean_squared_error, binary_crossentropy

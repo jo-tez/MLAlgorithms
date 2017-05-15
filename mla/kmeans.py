@@ -1,5 +1,5 @@
 import random
-import seaborn as sns
+#import seaborn as sns
 import matplotlib.pyplot as plt
 
 import numpy as np
@@ -131,21 +131,21 @@ class KMeans(BaseEstimator):
         return distance == 0
 
     def plot(self, ax=None, holdon=False):
-        sns.set(style="white")
-
+        #sns.set(style="white")
         data = self.X
-
         if ax is None:
             _, ax = plt.subplots()
-
-
+            
+        colors = ['red', 'green', 'grey', 'yellow']
 
         for i, index in enumerate(self.clusters):
             point = np.array(data[index]).T
-            ax.scatter(*point, c=sns.color_palette("hls", self.K + 1)[i])
+            #ax.scatter(*point, c=sns.color_palette("hls", self.K + 1)[i])
+            ax.scatter(*point, color=colors[i])
 
         for point in self.centroids:
             ax.scatter(*point, marker='x', linewidths=10)
 
         if not holdon:
             plt.show()
+

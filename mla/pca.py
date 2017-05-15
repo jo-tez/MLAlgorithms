@@ -1,4 +1,4 @@
-from scipy.linalg import svd
+
 import numpy as np
 import logging
 
@@ -10,7 +10,7 @@ np.random.seed(1000)
 class PCA(BaseEstimator):
     y_required = False
 
-    def __init__(self, n_components, solver='svd'):
+    def __init__(self, n_components, solver='eigen'):
         """Principal component analysis (PCA) implementation.
 
         Transforms a dataset of possibly correlated values into n linearly
@@ -22,7 +22,7 @@ class PCA(BaseEstimator):
         Parameters
         ----------
         n_components : int
-        solver : str, default 'svd'
+        solver : str, default 'eigen'
             {'svd', 'eigen'}
         """
         self.solver = solver
@@ -40,6 +40,7 @@ class PCA(BaseEstimator):
         X -= self.mean
 
         if self.solver == 'svd':
+            from scipy.linalg import svd
             _, s, Vh = svd(X, full_matrices=True)
         elif self.solver == 'eigen':
             s, Vh = np.linalg.eig(np.cov(X.T))

@@ -1,6 +1,6 @@
 import numpy as np
-import scipy.spatial.distance as dist
-
+#import scipy.spatial.distance as dist
+from matplotlib import mlab
 
 class Linear(object):
     def __call__(self, x, y):
@@ -26,9 +26,10 @@ class RBF(object):
         self.gamma = gamma
 
     def __call__(self, x, y):
-        x = np.atleast_2d(x)
-        y = np.atleast_2d(y)
-        return np.exp(-self.gamma * dist.cdist(x, y) ** 2).flatten()
+        #x = np.atleast_2d(x)
+        #y = np.atleast_2d(y)
+        #return np.exp(-self.gamma * dist.cdist(x, y) ** 2).flatten()
+        return np.exp(-self.gamma * mlab.dist(x, y) ** 2).flatten()
 
     def __repr__(self):
         return 'RBF kernel'
